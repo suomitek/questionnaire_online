@@ -1,5 +1,9 @@
-create database questionnaire default character set utf8mb4 collate utf8mb4_unicode_ci;
 use questionnaire;
+
+-- create user 'questionnaire'@'127.0.0.1' identified by 'questionnaire123';
+-- create database questionnaire default character set utf8mb4 collate utf8mb4_unicode_ci;
+-- grant all privileges on questionnaire.* to 'questionnaire'@'127.0.0.1';
+-- flush privileges;
 
 -- 用户
 CREATE TABLE  `user` (
