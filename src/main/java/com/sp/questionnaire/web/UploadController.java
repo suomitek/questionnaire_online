@@ -50,6 +50,8 @@ public class UploadController {
             return map;
         }
         log.info(file.getContentType() + " " + file.getOriginalFilename());
+        //application/octet-stream template.xls
+        //application/vnd.ms-excel
         if (!file.getContentType().equalsIgnoreCase("application/vnd.ms-excel") ||
                 !file.getOriginalFilename().endsWith(".xls")) {
             map.put("code", 2);
