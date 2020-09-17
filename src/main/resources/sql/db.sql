@@ -3,50 +3,50 @@ use questionnaire;
 
 -- 用户
 CREATE TABLE  `user` (
-    `id`VARCHAR( 64 ) NOT NULL ,
-    `username` VARCHAR( 64 ) NOT NULL ,
-    `password` VARCHAR( 64 ) NOT NULL ,
-    `email` VARCHAR( 64 ) NOT NULL ,
-    `create_time` DATETIME NOT NULL ,
-    `last_login_time` DATETIME NULL ,
+    `id`VARCHAR( 64 ) NOT NULL default '',
+    `username` VARCHAR( 64 ) NOT NULL default '',
+    `password` VARCHAR( 64 ) NOT NULL default '',
+    `email` VARCHAR( 64 ) NOT NULL  default '',
+    `create_time` DATETIME NOT NULL default CURRENT_TIMESTAMP,
+    `last_login_time` DATETIME not null default CURRENT_TIMESTAMP,
     `status` INT NOT NULL DEFAULT  '0',
-    `random_code` VARCHAR( 64 ) NOT NULL ,
+    `random_code` VARCHAR( 64 ) NOT NULL default '',
     PRIMARY KEY (`id`) ,
     UNIQUE (`random_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- 问卷
 CREATE TABLE  `paper` (
-    `id`VARCHAR( 64 ) NOT NULL ,
-    `user_id` VARCHAR( 64 ) NOT NULL ,
-    `title` VARCHAR( 64 ) NOT NULL ,
-    `create_time` DATETIME NOT NULL ,
+    `id`VARCHAR( 64 ) NOT NULL default '',
+    `user_id` VARCHAR( 64 ) NOT NULL default '',
+    `title` VARCHAR( 64 ) NOT NULL default '',
+    `create_time` DATETIME NOT NULL default CURRENT_TIMESTAMP,
     `status` INT NOT NULL DEFAULT  '0',
-    `start_time` DATETIME NULL ,
-    `end_time` DATETIME NULL ,
+    `start_time` DATETIME not NULL default CURRENT_TIMESTAMP,
+    `end_time` DATETIME not NULL default CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 
 -- 问题
 CREATE TABLE  `question` (
-    `id`VARCHAR( 64 ) NOT NULL ,
-    `paper_id` VARCHAR( 64 ) NOT NULL ,
-    `create_time` DATETIME NOT NULL ,
-    `question_type` INT NOT NULL ,
-    `question_title` VARCHAR( 128 ) NOT NULL ,
-    `question_option` VARCHAR( 512 ) NOT NULL ,
+    `id`VARCHAR( 64 ) NOT NULL default '',
+    `paper_id` VARCHAR( 64 ) NOT NULL default '',
+    `create_time` DATETIME NOT NULL default CURRENT_TIMESTAMP,
+    `question_type` INT NOT NULL default '0',
+    `question_title` VARCHAR( 128 ) NOT NULL default '',
+    `question_option` VARCHAR( 512 ) NOT NULL default '',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 
 -- 答题
 CREATE TABLE  `answer` (
-    `id`VARCHAR( 64 ) NOT NULL ,
-    `paper_id` VARCHAR( 64 ) NOT NULL ,
-    `question_id` VARCHAR( 64 ) NOT NULL ,
-    `question_type` INT NOT NULL ,
-    `create_time` DATETIME NOT NULL ,
-    `answer_content` VARCHAR( 512 ) NOT NULL ,
+    `id`VARCHAR( 64 ) NOT NULL default '',
+    `paper_id` VARCHAR( 64 ) NOT NULL default '',
+    `question_id` VARCHAR( 64 ) NOT NULL default '',
+    `question_type` INT NOT NULL default '0',
+    `create_time` DATETIME NOT NULL default CURRENT_TIMESTAMP,
+    `answer_content` VARCHAR( 512 ) NOT NULL default '',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
