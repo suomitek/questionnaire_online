@@ -4,6 +4,7 @@ import com.sp.questionnaire.entity.User;
 import com.sp.questionnaire.entity.view.AddPaperViewPaper;
 import com.sp.questionnaire.entity.view.PaperMethodHelp;
 import com.sp.questionnaire.utils.FileConvertToPaper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,7 @@ import java.util.Map;
  * 2018-09-21 Friday 09:37
  */
 @RestController
+@Slf4j
 public class UploadController {
     @Autowired
     private FileConvertToPaper convert;
@@ -47,6 +49,7 @@ public class UploadController {
             map.put("msg", "未选择文件！");
             return map;
         }
+        log.info(file.getContentType() + " " + file.getOriginalFilename());
         if (!file.getContentType().equalsIgnoreCase("application/vnd.ms-excel") ||
                 !file.getOriginalFilename().endsWith(".xls")) {
             map.put("code", 2);
