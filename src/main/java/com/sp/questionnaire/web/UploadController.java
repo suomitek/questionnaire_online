@@ -64,7 +64,7 @@ public class UploadController {
             paper.setStartTime("2020-09-01");
             paper.setEndTime("2021-09-01");
             map = paperMethodHelp.insertPaper(paper, user.getId(), null);
-        }else{
+        } else {
             map.put("code", 2);
             map.put("msg", "文件转换失败，请注意格式要求！");
         }
