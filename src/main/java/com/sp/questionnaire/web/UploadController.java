@@ -56,6 +56,7 @@ public class UploadController {
                 !file.getOriginalFilename().endsWith(".xls")) {
             map.put("code", 2);
             map.put("msg", "文件类型不支持！");
+            log.info("文件类型不支持");
             return map;
         }
         if (file.getSize() > 100 * 1024) {  //file cannot large than 100KB
