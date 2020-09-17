@@ -80,7 +80,7 @@ public class UserController {
             user.setId(commonUtils.getUUID())
                     .setPassword(commonUtils.encodeByMd5(user.getPassword()))
                     .setCreateTime(new Date())
-                    .setLastLoginTime(null)
+                    .setLastLoginTime(new Date())
                     .setStatus(0)
                     .setRandomCode(commonUtils.getUUID());
             if (userService.insertUser(user)) {   //insert user success
@@ -98,7 +98,7 @@ public class UserController {
                 user.setId(user0.getId())
                         .setPassword(commonUtils.encodeByMd5(user.getPassword()))
                         .setCreateTime(user0.getCreateTime())
-                        .setLastLoginTime(null)
+                        .setLastLoginTime(new Date())
                         .setStatus(0)
                         .setRandomCode(commonUtils.getUUID());
                 if (userService.updateUser(user)) {
