@@ -53,7 +53,7 @@ public class UploadController {
         //application/octet-stream template.xls
         //application/vnd.ms-excel
         if (!file.getContentType().equalsIgnoreCase("application/vnd.ms-excel") ||
-                !file.getOriginalFilename().endsWith(".xls")) {
+                !file.getOriginalFilename().endsWith("xls")) {
             map.put("code", 2);
             map.put("msg", "文件类型不支持！");
             log.info("文件类型不支持");
