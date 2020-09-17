@@ -23,8 +23,8 @@ public class FileConvertToPaper {
     public AddPaperViewPaper convert(MultipartFile file) {
         AddPaperViewPaper paper = new AddPaperViewPaper();
         try {
-            paper.setStartTime(null);
-            paper.setEndTime(null);
+            paper.setStartTime("2020-09-01");
+            paper.setEndTime("2021-09-01");
             paper.setStatus(0);
             List<AddPaperViewQuestion> questions = new ArrayList<>();
             HSSFWorkbook workbook = new HSSFWorkbook(file.getInputStream());

@@ -61,6 +61,8 @@ public class UploadController {
 
         AddPaperViewPaper paper = convert.convert(file);
         if (paper != null) {
+            paper.setStartTime("2020-09-01");
+            paper.setEndTime("2021-09-01");
             map = paperMethodHelp.insertPaper(paper, user.getId(), null);
         }else{
             map.put("code", 2);
